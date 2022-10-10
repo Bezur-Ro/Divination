@@ -46,29 +46,8 @@ function firstQuestion() {
 }
 
 // switch button position
-function switchButton() {
-    var audio = new Audio('sound/duck.mp3');
-    audio.play();
-    var leftNo = $('#no').css("left");
-    var topNO = $('#no').css("top");
-    var leftY = $('#yes').css("left");
-    var topY = $('#yes').css("top");
-    $('#no').css("left", leftY);
-    $('#no').css("top", topY);
-    $('#yes').css("left", leftNo);
-    $('#yes').css("top", topNO);
-}
+
 // move random button position
-function moveButton() {
-    var audio = new Audio('sound/Swish1.mp3');
-    audio.play();
-    var x = Math.random() * ($(window).width() - $('#no').width()) * 0.9;
-    var y = Math.random() * ($(window).height() - $('#no').height()) * 0.9;
-    var left = x + 'px';
-    var top = y + 'px';
-    $('#no').css("left", left);
-    $('#no').css("top", top);
-}
 
 init()
 
@@ -108,37 +87,5 @@ function textGenerate() {
 
 // show popup
 $('#yes').click(function() {
-    var audio = new Audio('sound/tick.mp3');
-    audio.play();
-    Swal.fire({
-        title: CONFIG.question,
-        html: true,
-        width: 900,
-        padding: '3em',
-        html: "<input type='text' class='form-control' id='txtReason' onmousemove=textGenerate()  placeholder='Whyyy'>",
-        background: '#fff url("img/iput-bg.jpg")',
-        backdrop: `
-              rgba(0,0,123,0.4)
-              url("img/giphy2.gif")
-              left top
-              no-repeat
-            `,
-        confirmButtonColor: '#3085d6',
-        confirmButtonColor: '#fe8a71',
-        confirmButtonText: CONFIG.btnReply
-    }).then((result) => {
-        if (result.value) {
-            Swal.fire({
-                width: 900,
-                confirmButtonText: CONFIG.btnAccept,
-                background: '#fff url("img/iput-bg.jpg")',
-                title: CONFIG.mess,
-                text: CONFIG.messDesc,
-                confirmButtonColor: '#83d0c9',
-                onClose: () => {
-                    window.location = CONFIG.messLink;
-                }
-            })
-        }
-    })
+  
 })
