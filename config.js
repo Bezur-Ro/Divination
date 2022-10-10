@@ -12,6 +12,6 @@ const CONFIG = {
     reply: '',
     mess: '',
     messDesc: '',
-    btnAccept: ',
+    btnAccept: '',
     messLink: ''
 }
